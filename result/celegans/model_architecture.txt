@@ -1,0 +1,91 @@
+htb(
+  (drug_extractor): MolecularGCN(
+    (init_transform): Linear(in_features=75, out_features=256, bias=False)
+    (gnn): GCN(
+      (gnn_layers): ModuleList(
+        (0): GCNLayer(
+          (graph_conv): GraphConv(in=256, out=256, normalization=none, activation=<function relu at 0x14b39dd64940>)
+          (dropout): Dropout(p=0.0, inplace=False)
+          (res_connection): Linear(in_features=256, out_features=256, bias=True)
+          (bn_layer): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (1): GCNLayer(
+          (graph_conv): GraphConv(in=256, out=256, normalization=none, activation=<function relu at 0x14b39dd64940>)
+          (dropout): Dropout(p=0.0, inplace=False)
+          (res_connection): Linear(in_features=256, out_features=256, bias=True)
+          (bn_layer): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (2): GCNLayer(
+          (graph_conv): GraphConv(in=256, out=256, normalization=none, activation=<function relu at 0x14b39dd64940>)
+          (dropout): Dropout(p=0.0, inplace=False)
+          (res_connection): Linear(in_features=256, out_features=256, bias=True)
+          (bn_layer): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+    )
+  )
+  (protein_extractor): ProteinLLMCNN(
+    (conv1): Conv1d(480, 256, kernel_size=(3,), stride=(1,), padding=same)
+    (bn1): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (conv2): Conv1d(256, 256, kernel_size=(5,), stride=(1,), padding=same)
+    (bn2): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (conv3): Conv1d(256, 256, kernel_size=(9,), stride=(1,), padding=same)
+    (bn3): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  )
+  (multi_scale_encoder_4): MultiAttnLayer(
+    (self_attn): MultiheadAttention(
+      (out_proj): NonDynamicallyQuantizableLinear(in_features=256, out_features=256, bias=True)
+    )
+    (linear1): Linear(in_features=256, out_features=512, bias=True)
+    (linear2): Linear(in_features=512, out_features=256, bias=True)
+    (norm1): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+    (norm2): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+    (dropout1): Dropout(p=0.1, inplace=False)
+    (dropout2): Dropout(p=0.1, inplace=False)
+  )
+  (multi_scale_encoder_8): MultiAttnLayer(
+    (self_attn): MultiheadAttention(
+      (out_proj): NonDynamicallyQuantizableLinear(in_features=256, out_features=256, bias=True)
+    )
+    (linear1): Linear(in_features=256, out_features=512, bias=True)
+    (linear2): Linear(in_features=512, out_features=256, bias=True)
+    (norm1): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+    (norm2): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+    (dropout1): Dropout(p=0.1, inplace=False)
+    (dropout2): Dropout(p=0.1, inplace=False)
+  )
+  (multi_scale_encoder_16): MultiAttnLayer(
+    (self_attn): MultiheadAttention(
+      (out_proj): NonDynamicallyQuantizableLinear(in_features=256, out_features=256, bias=True)
+    )
+    (linear1): Linear(in_features=256, out_features=512, bias=True)
+    (linear2): Linear(in_features=512, out_features=256, bias=True)
+    (norm1): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+    (norm2): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+    (dropout1): Dropout(p=0.1, inplace=False)
+    (dropout2): Dropout(p=0.1, inplace=False)
+  )
+  (cross_att): CAN_Layer(
+    (query_p): Linear(in_features=256, out_features=256, bias=False)
+    (key_p): Linear(in_features=256, out_features=256, bias=False)
+    (value_p): Linear(in_features=256, out_features=256, bias=False)
+    (query_d): Linear(in_features=256, out_features=256, bias=False)
+    (key_d): Linear(in_features=256, out_features=256, bias=False)
+    (value_d): Linear(in_features=256, out_features=256, bias=False)
+  )
+  (self_attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=256, out_features=256, bias=True)
+  )
+  (cross_attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=256, out_features=256, bias=True)
+  )
+  (mlp_classifier): MLPDecoder(
+    (fc1): Linear(in_features=768, out_features=256, bias=True)
+    (bn1): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (fc2): Linear(in_features=256, out_features=256, bias=True)
+    (bn2): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (fc3): Linear(in_features=256, out_features=128, bias=True)
+    (bn3): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (fc4): Linear(in_features=128, out_features=1, bias=True)
+  )
+)
