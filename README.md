@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Interpretable bilinear attention network with domain adaptation improves drug-target prediction | [Paper](https://doi.org/10.1038/s42256-022-00605-1)
 
 <div align="left">
@@ -121,3 +122,6 @@ Please cite our [paper](https://arxiv.org/abs/2208.02194) if you find our work u
     [3] Chen, Lifan, et al (2020). TransformerCPI: improving compound–protein interaction prediction by sequence-based deep learning with self-attention mechanism and label reversal experiments. Bioinformatics, 36(16), 4406-4414.
     [4] Kim, Jin-Hwa, Jaehyun Jun, and Byoung-Tak Zhang (2018). Bilinear attention networks. Advances in neural information processing systems, 31.
     [5] Haiping Lu, Xianyuan Liu, Shuo Zhou, Robert Turner, Peizhen Bai, ... & Hao Xu (2022). PyKale: Knowledge-Aware Machine Learning from Multiple Sources in Python. In Proceedings of the 31st ACM International Conference on Information and Knowledge Management (CIKM).
+=======
+# TPI
+>>>>>>> 8813dc71e73153c2c2dde24e9d84ef4cda6f9baa
