@@ -1,4 +1,4 @@
-# ProDTI: Drug–Target Binding Prediction with Bilinear Attention and Domain Adaptation
+# ProDTI: Multi-scale Protein Representation with Cross-domain Adaption for Drug-Target Prediction
 
 ## Installation
 
