@@ -21,7 +21,7 @@ pip install prettytable
 # Clone the ProDTI repository
 git clone https://github.com/htb130/TPI.git
 cd ProDTI
-
+```
 
 
 ## Running the Model
@@ -35,7 +35,7 @@ Before running, make sure to set up the correct `.yaml` configuration files for 
 
 ```bash
 python main.py --cfg "configs/ProDTI.yaml" --data ${dataset} --split ${split_task}
-
+```
 =======
 # TPI
 >>>>>>> 8813dc71e73153c2c2dde24e9d84ef4cda6f9baa
